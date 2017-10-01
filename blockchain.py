@@ -248,7 +248,9 @@ if __name__ == '__main__':
 		port = int(input('port: '))
 	except ValueError:
 		port = 5000
-		print(f'defaulting to port {port}')
+		message = f'defaulting to port {port}'
+		print(message)
+		logger.info(message)
 	app.run(host='127.0.0.1', port=port)
 		
 		
