@@ -1,5 +1,6 @@
 import json
 import hashlib
+import logging
 import requests
 from time import time
 from uuid import uuid4
@@ -155,10 +156,14 @@ class Blockchain(object):
 		
 #instantiate our node
 app = Flask(__name__)
+#create and configure logger
+logging.basicConfig(filename="testcoin.log", level=logging.DEBUG)
+logger = logging.getLogger()
 #generate a globally unique address for this node
 node_identifier = str(uuid4()).replace('-', '')
 #instantiate the blockchain
 blockchain = Blockchain()
+logger.info("testcoin up")
 
 @app.route('/mine', methods=['GET'])
 def mine():
