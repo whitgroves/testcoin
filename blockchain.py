@@ -157,7 +157,10 @@ class Blockchain(object):
 #instantiate our node
 app = Flask(__name__)
 #create and configure logger
-logging.basicConfig(filename="testcoin.log", level=logging.DEBUG)
+logging.basicConfig(filename="testcoin.log", 
+					level=logging.DEBUG,
+					format="%(levelname)s %(asctime)s - %(message)s",
+					filemode='w')
 logger = logging.getLogger()
 #generate a globally unique address for this node
 node_identifier = str(uuid4()).replace('-', '')
